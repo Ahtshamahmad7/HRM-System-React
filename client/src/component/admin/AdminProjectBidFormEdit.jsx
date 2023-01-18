@@ -61,7 +61,7 @@ class AdminProjectBidFormEdit extends Component {
       .then(response => {
         this.portalsData = response.data;
 
-        this.portalsData = this.portalsData.filter((data) => data["Status"] == 1);
+        this.portalsData = this.portalsData.filter((data) => data["Status"] === 1);
 
         this.setState({ portalsInfo: response.data });
       })
@@ -118,7 +118,7 @@ class AdminProjectBidFormEdit extends Component {
                 {this.portalsData.map((data, index) => (
                   <option value={data["_id"]}
                     selected={
-                      this.props.editData["portals"][0]["ID"] == data["ID"]
+                      this.props.editData["portals"][0]["ID"] === data["ID"]
                     }
                   >{data["PortalName"]}</option>))}
               </Form.Control>
@@ -156,10 +156,10 @@ class AdminProjectBidFormEdit extends Component {
             <Col sm={10} className="form-input">
               <Form.Control as="select" required>
                 <option value="1" selected={
-                  this.props.editData["ResourceID"] == 1
+                  this.props.editData["ResourceID"] === 1
                 }>Resource1</option>
-                <option value="2" selected={this.props.editData["ResourceID"] == 2}>Resource2</option>
-                <option value="3" selected={this.props.editData["ResourceID"] == 3}>Resource3</option>
+                <option value="2" selected={this.props.editData["ResourceID"] === 2}>Resource2</option>
+                <option value="3" selected={this.props.editData["ResourceID"] === 3}>Resource3</option>
               </Form.Control>
             </Col>
           </Form.Group>
@@ -170,10 +170,10 @@ class AdminProjectBidFormEdit extends Component {
     </Form.Label>
             <Col sm={10} className="form-input">
               <Form.Control as="select" required>
-                <option value="1" selected={this.props.editData["Status"] == 1}>Open</option>
-                <option value="2" selected={this.props.editData["Status"] == 2}>Close</option>
-                <option value="3" selected={this.props.editData["Status"] == 3}>Cancel</option>
-                <option value="4" selected={this.props.editData["Status"] == 4}>Award</option>
+                <option value="1" selected={this.props.editData["Status"] === 1}>Open</option>
+                <option value="2" selected={this.props.editData["Status"] === 2}>Close</option>
+                <option value="3" selected={this.props.editData["Status"] === 3}>Cancel</option>
+                <option value="4" selected={this.props.editData["Status"] === 4}>Award</option>
               </Form.Control>
             </Col>
           </Form.Group>

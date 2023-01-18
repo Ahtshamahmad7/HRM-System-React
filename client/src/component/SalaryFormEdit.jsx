@@ -95,7 +95,7 @@ class SalaryFormEdit extends Component {
                    {/* <option value="" disabled selected>Select your option</option> */}
                   {this.state.salaryData.map((data, index) => (
                     <option key={index} value={data["_id"]}
-                    selected={this.props.editData["_id"] == data["_id"]} disabled>{data["FirstName"]+" "+data["MiddleName"]+" "+data["LastName"]}</option>
+                    selected={this.props.editData["_id"] === data["_id"]} disabled>{data["FirstName"]+" "+data["MiddleName"]+" "+data["LastName"]}</option>
                   ))}
                 </Form.Control>
               </Col>

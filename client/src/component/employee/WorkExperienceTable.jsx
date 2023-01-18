@@ -108,7 +108,7 @@ class WorkExperienceTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
         // let data=this.educationObj.education["0"];
-        this.workExperienceObj.workExperience.map(data => {
+        this.workExperienceObj.workExperience.forEach(data => {
           let temp = {
             data,
             CompanyName:data["CompanyName"],
@@ -129,7 +129,7 @@ class WorkExperienceTable extends Component {
 
   onWorkExperienceDelete = (e1, e2) => {
     console.log(e1, e2);
-    if (window.confirm("Are you sure to delete this record? ") == true) {
+    if (window.confirm("Are you sure to delete this record? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/work-experience/" + e1 + "/" + e2, {
           headers: {

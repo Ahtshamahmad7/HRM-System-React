@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import "./DashboardHR.css";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { Switch } from "react-router";
-import { Redirect } from "react-router-dom";
 import Role from "../Role.jsx";
 import NavBar from "../NavBar.jsx";
-import RoleForm from "../RoleForm.jsx";
 import Position from "../Position.jsx";
 import Department from "../Department.jsx";
 import Country from "../Country.jsx";
@@ -21,16 +19,8 @@ import NotFound404 from "../NotFound404.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
-  faChair,
-  faBuilding,
  faUser,
-faUserTie,
-faCoins,
-faFileAlt,
-faCity,
-faGlobeAmericas,
-faPlaceOfWorship,
-faArchway,
+faUserTie
 } from "@fortawesome/free-solid-svg-icons";
 
 function RoleHRF() {
@@ -83,7 +73,7 @@ class DashboardHR extends Component {
     // var sidebarV = React.findDOMNode( this.refs.sidebar);
     // sidebarV.style.disply="none";
     
-    if(this.state.checked==true){ 
+    if(this.state.checked===true){ 
        // document.getElementById("sidebar").setAttribute("style", "display:none")
       document.getElementById("sidebar").setAttribute("class", "display-none");
     }

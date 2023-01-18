@@ -79,7 +79,7 @@ class CountryTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
 
-        this.countryObj.map(data => {
+        this.countryObj.forEach(data => {
           let temp = {
             data,
             CountryName: data["CountryName"]
@@ -97,7 +97,7 @@ class CountryTable extends Component {
   onCountryDelete = e => {
     console.log(e);
     // let body= "ID=" + e;
-    if (window.confirm("Are you sure to delete this record ? ") == true) {
+    if (window.confirm("Are you sure to delete this record ? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/country/" + e, {
           headers: {
@@ -110,7 +110,7 @@ class CountryTable extends Component {
         })
         .catch(err => {
           console.log(err.response);
-          if (err.response.status == 403) {
+          if (err.response.status === 403) {
             window.alert(err.response.data);
           }
         });

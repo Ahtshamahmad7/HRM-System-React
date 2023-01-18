@@ -106,7 +106,7 @@ class EducationTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
         // let data=this.educationObj.education["0"];
-        this.educationObj.education.map(data => {
+        this.educationObj.education.forEach(data => {
           let temp = {
             data,
             SchoolUniversity: data["SchoolUniversity"],
@@ -127,7 +127,7 @@ class EducationTable extends Component {
 
   onEducationDelete = (e1, e2) => {
     console.log(e1, e2);
-    if (window.confirm("Are you sure to delete this record? ") == true) {
+    if (window.confirm("Are you sure to delete this record? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/education/" + e1 + "/" + e2, {
           headers: {

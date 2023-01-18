@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./StateTable.css";
 import axios from "axios";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+// import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { RingLoader } from "react-spinners";
@@ -94,7 +94,7 @@ class StateTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
 
-        this.stateObj.map(data => {
+        this.stateObj.forEach(data => {
           let temp = {
             data,
             CountryName: data["country"][0]["CountryName"],
@@ -114,7 +114,7 @@ class StateTable extends Component {
   onStateDelete = e => {
     console.log(e);
     // let body= "ID=" + e;
-    if (window.confirm("Are you sure to delete this record ? ") == true) {
+    if (window.confirm("Are you sure to delete this record ? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/state/" + e, {
           headers: {
@@ -127,7 +127,7 @@ class StateTable extends Component {
         .catch(err => {
           console.log(err);
           console.log(err.response);
-          if(err.response.status==403){
+          if(err.response.status===403){
             window.alert(err.response.data) ;}
         });
     }

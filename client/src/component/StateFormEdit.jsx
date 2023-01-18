@@ -54,7 +54,7 @@ class StateForm extends Component {
                     <option
                       value={data["_id"]}
                       selected={
-                        this.props.editData["country"][0]["_id"] == data["_id"]
+                        this.props.editData["country"][0]["_id"] === data["_id"]
                       }
                     >
                       {data["CountryName"]}

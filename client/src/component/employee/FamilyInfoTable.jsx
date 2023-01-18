@@ -107,7 +107,7 @@ class FamilyInfoTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
         // let data=this.familyInfoObj.familyInfo["0"];
-        this.familyInfoObj.familyInfo.map(data => {
+        this.familyInfoObj.familyInfo.forEach(data => {
           let temp = {
             data,
             Name: data["Name"],
@@ -128,7 +128,7 @@ class FamilyInfoTable extends Component {
 
   onFamilyInfoDelete = (e1, e2) => {
     console.log(e1, e2);
-    if (window.confirm("Are you sure to delete this record? ") == true) {
+    if (window.confirm("Are you sure to delete this record? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/family-info/" + e1 + "/" + e2, {
           headers: {

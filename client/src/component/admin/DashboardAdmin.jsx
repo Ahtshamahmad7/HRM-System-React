@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import "./DashboardAdmin.css";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { Switch } from "react-router";
-import { Redirect } from "react-router-dom";
 
 import Role from "../Role.jsx";
 import NavBar from "../NavBar.jsx";
-import RoleForm from "../RoleForm.jsx";
 import Position from "../Position.jsx";
 import Department from "../Department.jsx";
 import AdminPortal from "./AdminPortal.jsx";
@@ -27,9 +25,9 @@ import {
 function RoleAdminF() {
   return <Role />;
 }
-function RoleFormF() {
-  return <RoleForm />;
-}
+// function RoleFormF() {
+//   return <RoleForm />;
+// }
 
 function PositionF() {
   return <Position />;
@@ -54,7 +52,7 @@ class DashboardAdmin extends Component {
     // var sidebarV = React.findDOMNode( this.refs.sidebar);
     // sidebarV.style.disply="none";
     
-    if(this.state.checked==true){ 
+    if(this.state.checked===true){ 
        // document.getElementById("sidebar").setAttribute("style", "display:none")
       document.getElementById("sidebar").setAttribute("class", "display-none");
     }

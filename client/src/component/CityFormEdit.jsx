@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import "./CityForm.css";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+// import { HashRouter as Router, Route, Link } from "react-router-dom";
 // import { Form,Button } from "react-bootstrap";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import axios from "axios";
@@ -54,13 +54,13 @@ class CityForm extends Component {
     console.log(e.target.value);
     let currentCountry = e.target.value;
     let filteredState = this.state.stateData.filter(
-      data => data["country"][0]["_id"] == currentCountry
+      data => data["country"][0]["_id"] === currentCountry
     );
     this.setState({ filteredStateData: filteredState });
   }
 
   onSelectCountry = (e, data) => {
-    return this.props.editData["state"][0]["country"][0]["_id"] == data["_id"];
+    return this.props.editData["state"][0]["country"][0]["_id"] === data["_id"];
   };
 
   render() {
@@ -106,7 +106,7 @@ class CityForm extends Component {
                     <option
                       value={data["_id"]}
                       selected={
-                        this.props.editData["state"][0]["_id"] == data["_id"]
+                        this.props.editData["state"][0]["_id"] === data["_id"]
                       }
                     >
                       {data["StateName"]}

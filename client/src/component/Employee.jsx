@@ -147,11 +147,12 @@ class Employee extends Component {
         }
       })
       .then(res => {
-        this.setState({ table: false });
+        // this.setState({ table: false });
         this.setState({ table: true });
       })
       .catch(err => {
         console.log(err);
+        console.log("error is hereeeeee");
       });
   };
   handleAddEmployee = () => {

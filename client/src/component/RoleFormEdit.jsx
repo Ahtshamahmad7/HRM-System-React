@@ -59,7 +59,7 @@ class RoleForm extends Component {
                     <option
                       value={data["_id"]}
                       selected={
-                        this.props.editData["company"][0]["_id"] == data["_id"]
+                        this.props.editData["company"][0]["_id"] === data["_id"]
                       }
                     >
                       {data["CompanyName"]}

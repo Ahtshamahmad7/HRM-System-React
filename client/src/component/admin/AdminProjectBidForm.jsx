@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./AdminProjectBidForm.css";
 import axios from "axios";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+// import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { Form, Button, Col, Row } from "react-bootstrap";
 
 class AdminProjectBidForm extends Component {
@@ -26,7 +26,7 @@ class AdminProjectBidForm extends Component {
         // i
         this.portalsData = response.data;
 
-        this.portalsData = this.portalsData.filter(data => data["Status"] == 1);
+        this.portalsData = this.portalsData.filter(data => data["Status"] === 1);
 
         this.setState({ portalsInfo: response.data });
       })

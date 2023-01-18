@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./PersonalInfoFormEdit.css";
-import axios from "axios";
 import { Form, Button, Col, Row } from "react-bootstrap";
 
 class PersonalInfoFormEdit extends Component {
@@ -53,9 +52,6 @@ class PersonalInfoFormEdit extends Component {
   }
   onHobbiesDataChange(e) {
     this.setState({ HobbiesData: e.target.value });
-  }
-  onPresentAddressDataChange(e) {
-    this.setState({ PresentAddressData: e.target.value });
   }
   onPresentAddressDataChange(e) {
     this.setState({ PresentAddressData: e.target.value });
@@ -140,7 +136,7 @@ class PersonalInfoFormEdit extends Component {
                   value="male"
                   name="gender"
                   onChange={this.onGenderChange}
-                  checked={this.state.GenderData == "male"}
+                  checked={this.state.GenderData === "male"}
                   required
                 />
                 <Form.Check
@@ -150,7 +146,7 @@ class PersonalInfoFormEdit extends Component {
                   value="female"
                   name="gender"
                   onChange={this.onGenderChange}
-                  checked={this.state.GenderData == "female"}
+                  checked={this.state.GenderData === "female"}
                   required
                 />
               </Col>
@@ -239,49 +235,49 @@ class PersonalInfoFormEdit extends Component {
                   </option>
                   <option
                     value="A+"
-                    selected={this.props.editData["BloodGroup"] == "A+"}
+                    selected={this.props.editData["BloodGroup"] === "A+"}
                   >
                     A+
                   </option>
                   <option
                     value="A-"
-                    selected={this.props.editData["BloodGroup"] == "A-"}
+                    selected={this.props.editData["BloodGroup"] === "A-"}
                   >
                     A-
                   </option>
                   <option
                     value="B+"
-                    selected={this.props.editData["BloodGroup"] == "B+"}
+                    selected={this.props.editData["BloodGroup"] === "B+"}
                   >
                     B+
                   </option>
                   <option
                     value="B-"
-                    selected={this.props.editData["BloodGroup"] == "B-"}
+                    selected={this.props.editData["BloodGroup"] === "B-"}
                   >
                     B-
                   </option>
                   <option
                     value="AB+"
-                    selected={this.props.editData["BloodGroup"] == "AB+"}
+                    selected={this.props.editData["BloodGroup"] === "AB+"}
                   >
                     AB+
                   </option>
                   <option
                     value="AB-"
-                    selected={this.props.editData["BloodGroup"] == "AB-"}
+                    selected={this.props.editData["BloodGroup"] === "AB-"}
                   >
                     AB-
                   </option>
                   <option
                     value="O+"
-                    selected={this.props.editData["BloodGroup"] == "O+"}
+                    selected={this.props.editData["BloodGroup"] === "O+"}
                   >
                     O+
                   </option>
                   <option
                     value="O-"
-                    selected={this.props.editData["BloodGroup"] == "O-"}
+                    selected={this.props.editData["BloodGroup"] === "O-"}
                   >
                     O-
                   </option>

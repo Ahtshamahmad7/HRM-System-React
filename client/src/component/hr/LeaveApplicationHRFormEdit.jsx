@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import "./LeaveApplicationHRFormEdit.css";
 // import { Form,Button } from "react-bootstrap";
 import { Form, Button, Col, Row } from "react-bootstrap";
-import axios from "axios";
 
 class LeaveApplicationHRForm extends Component {
   state = {
@@ -56,7 +55,7 @@ class LeaveApplicationHRForm extends Component {
                   </option>
                   <option
                     value="Sick Leave"
-                    selected={this.props.editData["Leavetype"] == "Sick Leave"}
+                    selected={this.props.editData["Leavetype"] === "Sick Leave"}
                     disabled
                   >
                     Sick Leave
@@ -64,7 +63,7 @@ class LeaveApplicationHRForm extends Component {
                   <option
                     value="Casual Leave"
                     selected={
-                      this.props.editData["Leavetype"] == "Casual Leave"
+                      this.props.editData["Leavetype"] === "Casual Leave"
                     }
                     disabled
                   >
@@ -73,7 +72,7 @@ class LeaveApplicationHRForm extends Component {
                   <option
                     value="Privilege Leave"
                     selected={
-                      this.props.editData["Leavetype"] == "Privilege Leave"
+                      this.props.editData["Leavetype"] === "Privilege Leave"
                     }
                     disabled
                   >
@@ -135,13 +134,13 @@ class LeaveApplicationHRForm extends Component {
                   </option>
                   <option
                     value="2"
-                    selected={this.props.editData["Status"] == 2}
+                    selected={this.props.editData["Status"] === 2}
                   >
                     Approve
                   </option>
                   <option
                     value="3"
-                    selected={this.props.editData["Status"] == 3}
+                    selected={this.props.editData["Status"] === 3}
                   >
                     Reject
                   </option>

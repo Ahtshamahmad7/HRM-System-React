@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./EmployeeInfo.css";
-import { Form, Button, Col, Row } from "react-bootstrap";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { Button, } from "react-bootstrap";
+import { HashRouter as Link } from "react-router-dom";
 
 
 

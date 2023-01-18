@@ -89,7 +89,7 @@ class PositionTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
 
-        this.positionObj.map(data => {
+        this.positionObj.forEach(data => {
           let temp = {
             data,
             CompanyName: data["company"][0]["CompanyName"],
@@ -108,7 +108,7 @@ class PositionTable extends Component {
 
   onPositionDelete = e => {
     console.log(e);
-    if (window.confirm("Are you sure to delete this record ? ") == true) {
+    if (window.confirm("Are you sure to delete this record ? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/position/" + e, {
           headers: {
@@ -121,7 +121,7 @@ class PositionTable extends Component {
         .catch(err => {
           console.log(err);
           console.log(err.response);
-          if (err.response.status == 403) {
+          if (err.response.status === 403) {
             window.alert(err.response.data);
           }
 

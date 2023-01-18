@@ -50,7 +50,7 @@ class NavBar extends Component {
         
           <Navbar.Collapse id="logout-navbar-nav">
             <Nav className="ml-auto">             
-              <a  onClick={this.props.onClick} className="navbar-right-content">
+              <a onClick={this.props.onClick} className="navbar-right-content">
                 {/* Admin */}
             {this.props.loginInfo["Name"]}
 

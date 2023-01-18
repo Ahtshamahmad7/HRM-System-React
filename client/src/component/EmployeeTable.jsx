@@ -193,16 +193,16 @@ class AdminEmployeeTable extends Component {
       })
       .then(response => {
         this.employeeObj = response.data;
-        // console.log("response", response.data);
+        console.log("response", response.data);
         this.setState({ employeeData: response.data });
         this.setState({ loading: false });
         this.rowDataT = [];
-        this.employeeObj.map(data => {
+        this.employeeObj.forEach(data => {
           let temp = {
             data,
             Email: data["Email"],
             Password: data["Password"],
-            Account: data["Account"] == 1 ? "Admin" : (data["Account"] == 2 ? "HR" : (data["Account"] == 3 ? "Employee" : "")),
+            Account: data["Account"] === 1 ? "Admin" : (data["Account"] === 2 ? "HR" : (data["Account"] === 3 ? "Employee" : "")),
             RoleName: data["role"][0]["RoleName"],
             FirstName: data["FirstName"],
             MiddleName: data["MiddleName"],
@@ -226,7 +226,7 @@ class AdminEmployeeTable extends Component {
 
   onEmployeeDelete = e => {
     console.log(e);
-    if (window.confirm("Are you sure to delete this record? ") == true) {
+    if (window.confirm("Are you sure to delete this record? ") === true) {
       window.alert("You are not allowed to perform this operation");
       // axios
       //   .delete(process.env.REACT_APP_API_URL + "/api/employee/" + e, {
@@ -329,7 +329,6 @@ class AdminEmployeeTable extends Component {
           <FontAwesomeIcon icon={faPlus} id="plus-icon" />
           Add
         </Button>
-
         <div id="clear-both" />
         {!this.state.loading ? (
           <div

@@ -52,7 +52,7 @@ class CityForm extends Component {
     console.log(e.target.value);
     let currentCountry = e.target.value;
     let filteredState = this.state.stateData.filter(
-      data => data["country"][0]["_id"] == currentCountry
+      data => data["country"][0]["_id"] === currentCountry
     );
     this.setState({ filteredStateData: filteredState });
   }

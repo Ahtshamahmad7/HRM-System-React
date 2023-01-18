@@ -89,11 +89,11 @@ class AdminPortalTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
 
-        this.portalObj.map(data => {
+        this.portalObj.forEach(data => {
           let temp = {
             data,
             PortalName: data["PortalName"],
-            Status: data["Status"] == 1 ? "enable" : "disable",
+            Status: data["Status"] === 1 ? "enable" : "disable",
 
           };
 
@@ -111,7 +111,7 @@ class AdminPortalTable extends Component {
     if (
       window.confirm(
         "Are you sure to delete this record,It Will Delete All Projects Related to This Portal? "
-      ) == true
+      ) === true
     ) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/admin/portal/" + e, {

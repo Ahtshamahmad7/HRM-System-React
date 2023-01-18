@@ -89,7 +89,7 @@ class DepartmentTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
 
-        this.departmentObj.map(data => {
+        this.departmentObj.forEach(data => {
           let temp = {
             data,
             CompanyName: data["company"][0]["CompanyName"],
@@ -109,7 +109,7 @@ class DepartmentTable extends Component {
 
   onDepartmentDelete = e => {
     console.log(e);
-    if (window.confirm("Are you sure to delete this record ? ") == true) {
+    if (window.confirm("Are you sure to delete this record ? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/department/" + e, {
           headers: {
@@ -122,7 +122,7 @@ class DepartmentTable extends Component {
         .catch(err => {
           console.log(err);
           console.log(err.response);
-          if (err.response.status == 403) {
+          if (err.response.status === 403) {
             window.alert(err.response.data);
           }
 

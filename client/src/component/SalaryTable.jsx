@@ -126,7 +126,7 @@ class AdminSalaryTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
 
-        this.salaryObj.map(data => {
+        this.salaryObj.forEach(data => {
           let temp = {
             data,
             EmployeeName: data["FirstName"]+""+data["MiddleName"]+""+data["LastName"],
@@ -153,7 +153,7 @@ class AdminSalaryTable extends Component {
 
   onSalaryDelete = e => {
     console.log(e);
-    if (window.confirm("Are you sure to delete this record? ") == true) {
+    if (window.confirm("Are you sure to delete this record? ") === true) {
       axios
         .delete(process.env.REACT_APP_API_URL + "/api/salary/" + e, {
           headers: {
