@@ -20,6 +20,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
  faUser,
+//  faCity,
+//  faGlobeAmericas,
+//  faFileAlt,
+//  faCoins,
+//  faChair,
+//  faBuilding,
+//  faPlaceOfWorship,
+//  faArchway,
 faUserTie
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -113,8 +121,8 @@ class DashboardHR extends Component {
                     <FontAwesomeIcon icon={faCoins} className="sidebar-icon" /> 
                     Salary 
                   </Link> 
-                </li> */}
-                {/* <li>
+                </li>  */}
+                 {/* <li>
                   <Link to="/hr/leave-application-hr">
                     <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
                     Leave Application 
@@ -126,12 +134,12 @@ class DashboardHR extends Component {
                     company 
                   </Link> 
                 </li> */}
-                <li>
+                {/* <li>
                   <Link to="/hr/role">
                     <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
                     Role 
                   </Link> 
-                </li>
+                </li> */}
                 {/* <li>
                   <Link to="/hr/position">
                     <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 
@@ -165,9 +173,6 @@ class DashboardHR extends Component {
                     City 
                   </Link> 
                 </li> */}
-                <li>
-                 
-                </li>
                 {/* <li> <a href=""><FontAwesomeIcon icon={faChair} className="sidebar-icon"/> Position</a>   </li> */}
                 {/* <li> <a href=""><FontAwesomeIcon icon={faBuilding} className="sidebar-icon"/> Department</a>   </li> */}
                 {/* <li> <a href=""><FontAwesomeIcon icon={faDollarSign} className="sidebar-icon"/> Project Bidding</a>   </li> */}

@@ -143,7 +143,6 @@ class CompanyForm extends Component {
                 <Form.Control
                   as="select"
                   name="state"
-                  required
                   onChange={this.onStateChange.bind(this)}
                 >
                   <option value="" disabled selected>
@@ -161,7 +160,7 @@ class CompanyForm extends Component {
                 City
               </Form.Label>
               <Col sm={10} className="form-input">
-                <Form.Control as="select" name="state" required>
+                <Form.Control as="select" name="state">
                   <option value="" disabled selected>
                     Select your option
                   </option>
@@ -214,42 +213,6 @@ class CompanyForm extends Component {
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control type="Text" placeholder="Contact No" required />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                FaxNo
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control type="Text" placeholder="FaxNo" required />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                PanCard No
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="Text"
-                  placeholder=" PanCard No  "
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                GSTNo
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control type="Text" placeholder="GSTNo" required />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                CINNo
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control type="Text" placeholder="CINNo" required />
               </Col>
             </Form.Group>
 

@@ -129,7 +129,7 @@ class AdminSalaryTable extends Component {
         this.salaryObj.forEach(data => {
           let temp = {
             data,
-            EmployeeName: data["FirstName"]+""+data["MiddleName"]+""+data["LastName"],
+            EmployeeName: data["FirstName"]+""+data["LastName"],
             BasicSalary: data["salary"][0]["BasicSalary"],
             BankName: data["salary"][0]["BankName"],
             AccountNo:data["salary"][0]["AccountNo"],

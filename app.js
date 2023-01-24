@@ -43,18 +43,18 @@ app.use(express.json());
 //////////////////Employee
 var employeeSchema = new mongoose.Schema({
   FirstName: { type: String, required: true },
-  MiddleName: { type: String, required: true },
+  // MiddleName: { type: String, required: true },
   LastName: { type: String, required: true },
   Email: { type: String, required: true, unique: true },
   Password: { type: String, required: true },
   Gender: { type: String, required: true },
   DOB: { type: Date, required: true },
-  DateOfJoining: { type: Date, required: true },
-  TerminateDate: { type: Date },
+  DateOfJoining: { type: Date, required: false },
+  // TerminateDate: { type: Date },
   Deleted: { type: Boolean },
   Photo: { type: String },
   ContactNo: { type: String, required: true },
-  EmployeeCode: { type: String, required: true },
+  EmployeeCode: { type: String, required: true, unique: true },
   Account: { type: Number, required: true },
   role: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
   position: [{ type: mongoose.Schema.Types.ObjectId, ref: "Position" }],
@@ -92,7 +92,7 @@ const EmployeeValidation = Joi.object().keys({
     .required(),
   MiddleName: Joi.string()
     .max(200)
-    .required(),
+    .optional(),
   LastName: Joi.string()
     .max(200)
     .required(),
@@ -106,7 +106,7 @@ const EmployeeValidation = Joi.object().keys({
     .max(100)
     .required(),
   DOB: Joi.date().required(),
-  DateOfJoining: Joi.date().required(),
+  DateOfJoining: Joi.date().optional(),
   TerminateDate: Joi.date().optional(),
   Deleted: Joi.optional(),
   Photo: Joi.optional(),
@@ -130,7 +130,7 @@ const EmployeeValidationUpdate = Joi.object().keys({
     .required(),
   MiddleName: Joi.string()
     .max(200)
-    .required(),
+    .optional(),
   LastName: Joi.string()
     .max(200)
     .required(),
@@ -141,7 +141,7 @@ const EmployeeValidationUpdate = Joi.object().keys({
     .max(100)
     .required(),
   DOB: Joi.date().required(),
-  DateOfJoining: Joi.date().required(),
+  DateOfJoining: Joi.date().optional(),
   TerminateDate: Joi.date().optional(),
   Deleted: Joi.optional(),
   Photo: Joi.optional(),
@@ -351,7 +351,7 @@ const LeaveApplicationHRValidation = Joi.object().keys({
 //////////////////////////////////
 //////////////////Role
 var roleSchema = new mongoose.Schema({
-  // RoleID: {type:Number,required:true, default: 0 },
+  RoleID: {type:Number,required:true, default: 0 },
   RoleName: { type: String, required: true },
   company: [{ type: mongoose.Schema.Types.ObjectId, ref: "Company" }]
 });
@@ -1581,7 +1581,7 @@ app.post("/api/employee", verifyHR, (req, res) => {
         Account: req.body.Account,
         Gender: req.body.Gender,
         FirstName: req.body.FirstName,
-        MiddleName: req.body.MiddleName,
+        // MiddleName: req.body.MiddleName,
         LastName: req.body.LastName,
         DOB: req.body.DOB,
         ContactNo: req.body.ContactNo,
@@ -1589,7 +1589,7 @@ app.post("/api/employee", verifyHR, (req, res) => {
         department: req.body.DepartmentID,
         position: req.body.PositionID,
         DateOfJoining: req.body.DateOfJoining,
-        TerminateDate: req.body.TerminateDate
+        // TerminateDate: req.body.TerminateDate
       };
 
       Employee.create(newEmployee, function (err, employee) {
@@ -1621,15 +1621,15 @@ app.put("/api/employee/:id", verifyHR, (req, res) => {
         role: req.body.RoleID,
         Gender: req.body.Gender,
         FirstName: req.body.FirstName,
-        MiddleName: req.body.MiddleName,
+        // MiddleName: req.body.MiddleName,
         LastName: req.body.LastName,
         DOB: req.body.DOB,
         ContactNo: req.body.ContactNo,
         EmployeeCode: req.body.EmployeeCode,
         department: req.body.DepartmentID,
         position: req.body.PositionID,
-        DateOfJoining: req.body.DateOfJoining,
-        TerminateDate: req.body.TerminateDate
+        DateOfJoining: req.body.DateOfJoining
+        // TerminateDate: req.body.TerminateDate
       };
 
       Employee.findByIdAndUpdate(req.params.id, newEmployee, function (
@@ -1683,7 +1683,7 @@ app.get("/api/salary", verifyHR, (req, res) => {
       // }
     })
     // .select(" -role -position -department")
-    .select("FirstName LastName MiddleName")
+    .select("FirstName LastName")
     .exec(function (err, company) {
       // employee = employees;
       let filteredCompany = company.filter(data => data["salary"].length == 1);
@@ -1896,7 +1896,7 @@ app.get("/api/education/:id", verifyHREmployee, (req, res) => {
       // }
     })
     // .select(" -role -position -department")
-    .select("FirstName LastName MiddleName")
+    .select("FirstName LastName")
     .exec(function (err, employee) {
       // console.log(filteredCompany);
       res.send(employee);
@@ -2030,7 +2030,7 @@ app.get("/api/family-info/:id", verifyHREmployee, (req, res) => {
       // }
     })
     // .select(" -role -position -department")
-    .select("FirstName LastName MiddleName")
+    .select("FirstName LastName")
     .exec(function (err, employee) {
       // console.log(filteredCompany);
       res.send(employee);
@@ -2164,7 +2164,7 @@ app.get("/api/work-experience/:id", verifyHREmployee, (req, res) => {
       // }
     })
     // .select(" -role -position -department")
-    .select("FirstName LastName MiddleName")
+    .select("FirstName LastName")
     .exec(function (err, employee) {
       res.send(employee);
     });
@@ -2301,7 +2301,7 @@ app.get("/api/leave-application-emp/:id", verifyEmployee, (req, res) => {
       // }
     })
     // .select(" -role -position -department")
-    .select("FirstName LastName MiddleName")
+    .select("FirstName LastName ")
     .exec(function (err, employee) {
       // console.log(filteredCompany);
       if (err) {

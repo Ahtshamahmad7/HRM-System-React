@@ -33,13 +33,13 @@ class PersonalInfoTable extends Component {
         // filter: true ,
         width: 110,
       },
-      {
-        headerName: "Middle Name",
-        field: "MiddleName",
-        sortable: true,
-        // filter: true ,
-        width: 130,
-      },
+      // {
+      //   headerName: "Middle Name",
+      //   field: "MiddleName",
+      //   sortable: true,
+      //   // filter: true ,
+      //   width: 130,
+      // },
       {
         headerName: "Last Name",
         field: "LastName",
@@ -148,7 +148,7 @@ class PersonalInfoTable extends Component {
         let temp = {
           data,
           FirstName: data["FirstName"] || "Not Avaiable",
-          MiddleName: data["MiddleName"] || "Not Avaiable",
+          // MiddleName: data["MiddleName"] || "Not Avaiable",
           LastName: data["LastName"] || "Not Avaiable",
           Gender: data["Gender"] || "Not Avaiable",
           ContactNo: data["ContactNo"] || "Not Avaiable",

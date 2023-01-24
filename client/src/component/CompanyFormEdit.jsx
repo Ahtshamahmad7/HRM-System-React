@@ -277,47 +277,6 @@ class CompanyFormEdit extends Component {
                   onChange={value => this.onContactNoDataChange(value)} />
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                FaxNo
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control type="Text" placeholder="FaxNo" required value={this.state.FaxNoData}
-                  onChange={value => this.onFaxNoDataChange(value)} />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                PanCard No
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="Text"
-                  placeholder=" PanCard No  "
-                  required
-                  value={this.state.PanNoData}
-                  onChange={value => this.onPanNoDataChange(value)}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                GSTNo
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control type="Text" placeholder="GSTNo" required value={this.state.GSTNoData}
-                  onChange={value => this.onGSTNoDataChange(value)} />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                CINNo
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control type="Text" placeholder="CINNo" required value={this.state.CINNoData}
-                  onChange={value => this.onCINNoDataChange(value)} />
-              </Col>
-            </Form.Group>
 
             <Form.Group as={Row} id="form-submit-button">
               <Col sm={{ span: 10, offset: 2 }}>

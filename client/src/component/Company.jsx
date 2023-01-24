@@ -49,11 +49,7 @@ class Company extends Component {
       Website: event.target[6].value,
       Email: event.target[7].value,
       ContactPerson: event.target[8].value,
-      ContactNo: event.target[9].value,
-      FaxNo: event.target[10].value,
-      PanNo: event.target[11].value,
-      GSTNo: event.target[12].value,
-      CINNo: event.target[13].value,
+      ContactNo: event.target[9].value
     };
     axios
       .post(process.env.REACT_APP_API_URL + "/api/company", body, {

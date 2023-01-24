@@ -14,14 +14,14 @@ class EmployeeFormEdit extends Component {
     // PasswordData: "",
 
     FirstNameData: this.props.editData["FirstName"],
-    MiddleNameData: this.props.editData["MiddleName"],
+    // MiddleNameData: this.props.editData["MiddleName"],
     LastNameData: this.props.editData["LastName"],
     DOBData: this.props.editData["DOB"].slice(0, 10),
     ContactNoData: this.props.editData["ContactNo"],
     EmployeeCodeData: this.props.editData["EmployeeCode"],
 
-    DateOfJoiningData: this.props.editData["DateOfJoining"].slice(0, 10),
-    TerminateDateData: this.props.editData["TerminateDate"].slice(0, 10)
+    DateOfJoiningData: this.props.editData["DateOfJoining"]
+    // TerminateDateData: this.props.editData["TerminateDate"].slice(0, 10)
 
     // value={this.state.EmployeeTitleData}
     // onChange={value => this.onEmployeeTitleDataChange(value)}
@@ -33,9 +33,9 @@ class EmployeeFormEdit extends Component {
   onFirstNameDataChange(e) {
     this.setState({ FirstNameData: e.target.value });
   }
-  onMiddleNameDataChange(e) {
-    this.setState({ MiddleNameData: e.target.value });
-  }
+  // onMiddleNameDataChange(e) {
+  //   this.setState({ MiddleNameData: e.target.value });
+  // }
   onLastNameDataChange(e) {
     this.setState({ LastNameData: e.target.value });
   }
@@ -103,10 +103,10 @@ class EmployeeFormEdit extends Component {
     console.log(e.target.value);
     this.setState({ DateOfJoiningData: e.target.value });
   };
-  onTerminateDateDataChange = e => {
-    console.log(e.target.value);
-    this.setState({ TerminateDateData: e.target.value });
-  };
+  // onTerminateDateDataChange = e => {
+  //   console.log(e.target.value);
+  //   this.setState({ TerminateDateData: e.target.value });
+  // };
   onGenderChange = e => {
     this.setState({ GenderData: e.target.value });
     this.props.onGenderChange(e);
@@ -250,7 +250,7 @@ class EmployeeFormEdit extends Component {
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Middle Name
               </Form.Label>
@@ -263,7 +263,7 @@ class EmployeeFormEdit extends Component {
                   onChange={value => this.onMiddleNameDataChange(value)}
                 />
               </Col>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Last Name
@@ -378,7 +378,6 @@ class EmployeeFormEdit extends Component {
                 <Form.Control
                   type="date"
                   placeholder="Date Of Joining"
-                  required
                   //   value={this.props.editData["DateOfJoining"].slice(0, 10)}
                   value={this.state.DateOfJoiningData}
                   onChange={value => this.onDateOfJoiningDataChange(value)}

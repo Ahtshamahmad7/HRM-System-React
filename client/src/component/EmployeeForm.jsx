@@ -167,7 +167,7 @@ class EmployeeForm extends Component {
                 <Form.Control
                   type="text"
                   placeholder="Middle Name"
-                  required
+                  
                 />
               </Col>
             </Form.Group> */}
@@ -192,7 +192,7 @@ class EmployeeForm extends Component {
                 <Form.Control
                   type="date"
                   placeholder="DOB"
-                  required
+                  
                 />
               </Col>
             </Form.Group>
@@ -231,7 +231,6 @@ class EmployeeForm extends Component {
                 <Form.Control
                   as="select"
                   name="department"
-                  required
                 >
                   <option value="" disabled selected>
                     Select your option
@@ -248,7 +247,7 @@ class EmployeeForm extends Component {
                 Position
               </Form.Label>
               <Col sm={10} className="form-input">
-                <Form.Control as="select" name="position" required>
+                <Form.Control as="select" name="position" >
                   <option value="" disabled selected>
                     Select your option
                   </option>
@@ -266,11 +265,11 @@ class EmployeeForm extends Component {
                 <Form.Control
                   type="date"
                   placeholder="Date Of Joining"
-                  required
+                  
                 />
               </Col>
             </Form.Group>
-            {/* <Form.Group as={Row}>
+            <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Terminate Date
               </Form.Label>
@@ -280,7 +279,7 @@ class EmployeeForm extends Component {
                   placeholder="Terminate Date"
                 />
               </Col>
-            </Form.Group> */}
+            </Form.Group>
 
 
 

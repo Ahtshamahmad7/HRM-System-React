@@ -94,30 +94,6 @@ class AdminCompanyTable extends Component {
         width: 120,
         // filter: true ,
       },
-      {
-        headerName: "Fax No",
-        field: "FaxNo",
-        sortable: true
-        // filter: true ,
-      },
-      {
-        headerName: "Pan No",
-        field: "PanNo",
-        sortable: true
-        // filter: true ,
-      },
-      {
-        headerName: "GST No",
-        field: "GSTNo",
-        sortable: true
-        // filter: true ,
-      },
-      {
-        headerName: "CIN No",
-        field: "CINNo",
-        sortable: true
-        // filter: true ,
-      },
 
 
       {

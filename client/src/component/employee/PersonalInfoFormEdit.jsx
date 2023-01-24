@@ -15,7 +15,7 @@ class PersonalInfoFormEdit extends Component {
 
     EmailData: this.props.editData["Email"],
     FirstNameData: this.props.editData["FirstName"],
-    MiddleNameData: this.props.editData["MiddleName"],
+    // MiddleNameData: this.props.editData["MiddleName"],
     LastNameData: this.props.editData["LastName"],
     DOBData: this.props.editData["DOB"].slice(0, 10),
     ContactNoData: this.props.editData["ContactNo"],
@@ -35,9 +35,9 @@ class PersonalInfoFormEdit extends Component {
   onFirstNameDataChange(e) {
     this.setState({ FirstNameData: e.target.value });
   }
-  onMiddleNameDataChange(e) {
-    this.setState({ MiddleNameData: e.target.value });
-  }
+  // onMiddleNameDataChange(e) {
+  //   this.setState({ MiddleNameData: e.target.value });
+  // }
   onLastNameDataChange(e) {
     this.setState({ LastNameData: e.target.value });
   }
@@ -95,7 +95,7 @@ class PersonalInfoFormEdit extends Component {
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Middle Name
               </Form.Label>
@@ -108,7 +108,7 @@ class PersonalInfoFormEdit extends Component {
                   value={this.state.MiddleNameData}
                 />
               </Col>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Last Name
@@ -191,20 +191,6 @@ class PersonalInfoFormEdit extends Component {
                   required
                   value={this.state.EmailData}
                   onChange={value => this.onEmailDataChange(value)}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                PAN Card No
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="PAN Card No"
-                  required
-                  value={this.state.PANcardNoData}
-                  onChange={value => this.onPANcardNoDataChange(value)}
                 />
               </Col>
             </Form.Group>

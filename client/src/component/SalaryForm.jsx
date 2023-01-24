@@ -49,7 +49,7 @@ class SalaryForm extends Component {
                 >
                    <option value="" disabled selected>Select your option</option>
                   {this.state.employeeData.map((data, index) => (
-                    <option key={index} value={data["_id"]}>{data["FirstName"]+" "+data["MiddleName"]+" "+data["LastName"]}</option>
+                    <option key={index} value={data["_id"]}>{data["FirstName"]+" "+data["LastName"]}</option>
                   ))}
                 </Form.Control>
               </Col>

@@ -129,45 +129,45 @@ class AdminEmployeeTable extends Component {
         // filter: true ,
 
       },
-      // {
-      //   headerName: "",
-      //   field: "info",
-      //   filter: false,
-      //   width: 30,
-      //   // cellRenderer:this.ageCellRendererFunc,
-      //   // cellRendererFramework: function(params) {
-      //   //   return <button OnClick={console.log("pa",params)}>Test</button>;
-      //   // },
-      //   cellRendererFramework: this.renderInfoButton.bind(this),
+      {
+        headerName: "",
+        field: "info",
+        filter: false,
+        width: 30,
+        // cellRenderer:this.ageCellRendererFunc,
+        // cellRendererFramework: function(params) {
+        //   return <button OnClick={console.log("pa",params)}>Test</button>;
+        // },
+        cellRendererFramework: this.renderInfoButton.bind(this),
 
 
-      // },
-      // {
-      //   headerName: "",
-      //   field: "edit",
-      //   filter: false,
-      //   width: 30,
-      //   // cellRenderer:this.ageCellRendererFunc,
-      //   // cellRendererFramework: function(params) {
-      //   //   return <button OnClick={console.log("pa",params)}>Test</button>;
-      //   // },
-      //   cellRendererFramework: this.renderEditButton.bind(this),
+      },
+      {
+        headerName: "",
+        field: "edit",
+        filter: false,
+        width: 30,
+        // cellRenderer:this.ageCellRendererFunc,
+        // cellRendererFramework: function(params) {
+        //   return <button OnClick={console.log("pa",params)}>Test</button>;
+        // },
+        cellRendererFramework: this.renderEditButton.bind(this),
 
 
-      // },
-      // {
-      //   headerName: "",
-      //   field: "delete",
-      //   filter: false,
-      //   width: 30,
-      //   // cellRenderer:this.ageCellRendererFunc,
-      //   // cellRendererFramework: function(params) {
-      //   //   return <button OnClick={console.log("pa",params)}>Test</button>;
-      //   // },
-      //   cellRendererFramework: this.renderButton.bind(this),
+      },
+      {
+        headerName: "",
+        field: "delete",
+        filter: false,
+        width: 30,
+        // cellRenderer:this.ageCellRendererFunc,
+        // cellRendererFramework: function(params) {
+        //   return <button OnClick={console.log("pa",params)}>Test</button>;
+        // },
+        cellRendererFramework: this.renderButton.bind(this),
 
 
-      // },
+      },
 
     ],
     rowData: [],
@@ -197,22 +197,22 @@ class AdminEmployeeTable extends Component {
         this.setState({ employeeData: response.data });
         this.setState({ loading: false });
         this.rowDataT = [];
-        this.employeeObj.forEach(data => {
+        this.employeeObj.map(data => {
           let temp = {
             data,
             Email: data["Email"],
             Password: data["Password"],
             Account: data["Account"] === 1 ? "Admin" : (data["Account"] === 2 ? "HR" : (data["Account"] === 3 ? "Employee" : "")),
-            RoleName: data["role"][0]["RoleName"],
+            RoleName: data["RoleName"],
             FirstName: data["FirstName"],
-            MiddleName: data["MiddleName"],
+            // MiddleName: data["MiddleName"],
             LastName: data["LastName"],
             DOB: data["DOB"].slice(0, 10),
             ContactNo: data["ContactNo"],
             EmployeeCode: data["EmployeeCode"],
-            DepartmentName: data["department"][0]["DepartmentName"],
-            PositionName: data["position"][0]["PositionName"],
-            DateOfJoining: data["DateOfJoining"].slice(0, 10)
+            DepartmentName: data["department"][1],
+            // PositionName: data["position"][1],
+            DateOfJoining: data["DateOfJoining"]
           };
 
           this.rowDataT.push(temp);
@@ -249,7 +249,7 @@ class AdminEmployeeTable extends Component {
     console.log(e);
   }
   renderInfoButton(params) {
-    console.log(params);
+    // console.log(params);
     return <div>
       <FontAwesomeIcon
         icon={faInfoCircle}
@@ -257,14 +257,14 @@ class AdminEmployeeTable extends Component {
       /></div>;
   }
   renderButton(params) {
-    console.log(params);
+    // console.log(params);
     return <FontAwesomeIcon
       icon={faTrash}
       onClick={() => this.onEmployeeDelete(params.data.data["_id"])}
     />;
   }
   renderEditButton(params) {
-    console.log(params);
+    // console.log(params);
     return <FontAwesomeIcon
       icon={faEdit}
       onClick={() => this.props.onEditEmployee(params.data.data)}

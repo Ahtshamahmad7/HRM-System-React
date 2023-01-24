@@ -83,7 +83,7 @@ class CityForm extends Component {
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 State
               </Form.Label>
@@ -97,7 +97,7 @@ class CityForm extends Component {
                   ))}
                 </Form.Control>
               </Col>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group as={Row}>
               <Form.Label column sm={2}>

@@ -11,11 +11,6 @@ import Education from "./employee/Education.jsx";
 import FamilyInfo from "./employee/FamilyInfo.jsx";
 import WorkExperience from "./employee/WorkExperience.jsx";
 
-
-
-
-
-
 class Employee extends Component {
   state = {
     table: true,
@@ -120,8 +115,8 @@ class Employee extends Component {
   };
   handleEmployeeSubmit = event => {
     event.preventDefault();
-    console.log("id", event.target[0].value, event.target[1].value);
-    this.setState({ table: true });
+    // console.log("id", event.target[0].value, event.target[1].value);
+    this.setState({ table: false });
 
     let body = {
       Email: event.target[0].value,
@@ -130,15 +125,15 @@ class Employee extends Component {
       RoleID: event.target[3].value,
       Gender: this.state.addFormGender,
       FirstName: event.target[6].value,
-      MiddleName: event.target[7].value,
-      LastName: event.target[8].value,
-      DOB: event.target[9].value,
-      ContactNo: event.target[10].value,
-      EmployeeCode: event.target[11].value,
-      DepartmentID: event.target[12].value,
-      PositionID: event.target[13].value,
-      DateOfJoining: event.target[14].value,
-      TerminateDate: event.target[15].value,
+      // MiddleName: event.target[7].value,
+      LastName: event.target[7].value,
+      DOB: event.target[8].value,
+      ContactNo: event.target[9].value,
+      EmployeeCode: event.target[10].value,
+      DepartmentID: event.target[11].value,
+      PositionID: event.target[12].value,
+      DateOfJoining: event.target[13].value,
+      // TerminateDate: event.target[14].value,
     };
     axios
       .post(process.env.REACT_APP_API_URL + "/api/employee", body, {
@@ -152,7 +147,7 @@ class Employee extends Component {
       })
       .catch(err => {
         console.log(err);
-        console.log("error is hereeeeee");
+        console.log("catch state run");
       });
   };
   handleAddEmployee = () => {
@@ -182,15 +177,15 @@ class Employee extends Component {
       RoleID: newInfo.target[2].value,
       Gender: this.state.editFormGender,
       FirstName: newInfo.target[5].value,
-      MiddleName: newInfo.target[6].value,
-      LastName: newInfo.target[7].value,
-      DOB: newInfo.target[8].value,
-      ContactNo: newInfo.target[9].value,
-      EmployeeCode: newInfo.target[10].value,
-      DepartmentID: newInfo.target[11].value,
-      PositionID: newInfo.target[12].value,
-      DateOfJoining: newInfo.target[13].value,
-      TerminateDate: newInfo.target[14].value,
+      // MiddleName: newInfo.target[6].value,
+      LastName: newInfo.target[6].value,
+      DOB: newInfo.target[7].value,
+      ContactNo: newInfo.target[8].value,
+      EmployeeCode: newInfo.target[9].value,
+      DepartmentID: newInfo.target[10].value,
+      PositionID: newInfo.target[11].value,
+      DateOfJoining: newInfo.target[12].value
+      // TerminateDate: newInfo.target[13].value,
     };
     console.log("update", body);
     axios

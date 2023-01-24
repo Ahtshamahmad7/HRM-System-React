@@ -31,7 +31,7 @@ class App extends Component {
         Account: localStorage.getItem("Account") || "",
         Name: localStorage.getItem("Name") || ""
       },
-      isLogin: localStorage.getItem("isLogin") == "true"
+      isLogin: localStorage.getItem("isLogin") === "true"
 
     }, () => {
       // temporary : for user to see user id and pass of all accounts to explore all features of app
