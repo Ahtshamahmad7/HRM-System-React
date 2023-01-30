@@ -134,12 +134,12 @@ class DashboardHR extends Component {
                     company 
                   </Link> 
                 </li> */}
-                {/* <li>
+                <li>
                   <Link to="/hr/role">
                     <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
                     Role 
                   </Link> 
-                </li> */}
+                </li>
                 {/* <li>
                   <Link to="/hr/position">
                     <FontAwesomeIcon icon={faChair} className="sidebar-icon" /> 

@@ -215,7 +215,7 @@ class App extends Component {
               decodedData["FirstName"] + " " + decodedData["LastName"]
             );
             this.componentDidMount();
-            history.push("#/admin/role");
+            history.push("#/admin/employee");
           }
           if (decodedData.Account === 2) {
             // this.setState({ data: decodedData });

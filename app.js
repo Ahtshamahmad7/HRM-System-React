@@ -49,7 +49,7 @@ var employeeSchema = new mongoose.Schema({
   Password: { type: String, required: true },
   Gender: { type: String, required: true },
   DOB: { type: Date, required: true },
-  DateOfJoining: { type: Date, required: false },
+  DateOfJoining: { type: Date, required: true },
   // TerminateDate: { type: Date },
   Deleted: { type: Boolean },
   Photo: { type: String },
@@ -106,7 +106,7 @@ const EmployeeValidation = Joi.object().keys({
     .max(100)
     .required(),
   DOB: Joi.date().required(),
-  DateOfJoining: Joi.date().optional(),
+  DateOfJoining: Joi.date().required(),
   TerminateDate: Joi.date().optional(),
   Deleted: Joi.optional(),
   Photo: Joi.optional(),
@@ -141,7 +141,7 @@ const EmployeeValidationUpdate = Joi.object().keys({
     .max(100)
     .required(),
   DOB: Joi.date().required(),
-  DateOfJoining: Joi.date().optional(),
+  DateOfJoining: Joi.date().required(),
   TerminateDate: Joi.date().optional(),
   Deleted: Joi.optional(),
   Photo: Joi.optional(),
@@ -1545,7 +1545,7 @@ app.put("/api/company/:id", verifyHR, (req, res) => {
 /////////////////////////////////
 /////////////////////Employee
 
-app.get("/api/employee", verifyHR, (req, res) => {
+app.get("/api/employee", verifyAdminHR, (req, res) => {
   // {path: 'projects', populate: {path: 'portals'}}
   Employee.find()
     // .populate({ path: "city", populate: { path: "state" } ,populate: { populate: { path: "country" } } })
@@ -1566,7 +1566,7 @@ app.get("/api/employee", verifyHR, (req, res) => {
     });
 });
 
-app.post("/api/employee", verifyHR, (req, res) => {
+app.post("/api/employee", verifyAdminHR, (req, res) => {
   Joi.validate(req.body, EmployeeValidation, (err, result) => {
     if (err) {
       console.log(err);
@@ -1607,7 +1607,7 @@ app.post("/api/employee", verifyHR, (req, res) => {
   });
 });
 
-app.put("/api/employee/:id", verifyHR, (req, res) => {
+app.put("/api/employee/:id", verifyHR, verifyAdmin, (req, res) => {
   Joi.validate(req.body, EmployeeValidationUpdate, (err, result) => {
     if (err) {
       console.log(err);
@@ -1649,19 +1649,25 @@ app.put("/api/employee/:id", verifyHR, (req, res) => {
   });
 });
 
-app.delete("/api/employee/:id", verifyHR, (req, res) => {
-  // Employee.findByIdAndRemove({ _id: req.params.id }, function (err, employee) {
-  //   if (!err) {
-  //     console.log(" state deleted");
-  //     res.send(employee);
-  //   } else {
-  //     console.log(err);
-  //     res.send("error");
-  //   }
-  // });
-  res.send("error");
-  console.log("delete");
-  console.log(req.params.id);
+app.delete("/api/employee/:id", verifyAdmin, (req, res) => {
+  Employee.find({ _id: req.params.id }, function (err, e) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+        Employee.findByIdAndRemove({ _id: req.params.id }, function (err) {
+          if (!err) {
+            console.log(" Employee deleted");
+          } else {
+            console.log("error");
+            res.send("err");
+          }
+        });
+        res.send("error");
+        console.log("delete");
+        console.log(req.params.id);
+      }
+    });
 });
 
 ////////////////////////////////

@@ -203,15 +203,15 @@ class AdminEmployeeTable extends Component {
             Email: data["Email"],
             Password: data["Password"],
             Account: data["Account"] === 1 ? "Admin" : (data["Account"] === 2 ? "HR" : (data["Account"] === 3 ? "Employee" : "")),
-            RoleName: data["RoleName"],
+            RoleName: data["role"].length > 0 ? data["role"][0]['RoleName']: null,
             FirstName: data["FirstName"],
             // MiddleName: data["MiddleName"],
             LastName: data["LastName"],
             DOB: data["DOB"].slice(0, 10),
             ContactNo: data["ContactNo"],
             EmployeeCode: data["EmployeeCode"],
-            DepartmentName: data["department"][1],
-            // PositionName: data["position"][1],
+            DepartmentName: data["department"].length > 0 ? data["department"][0]['DepartmentName']: null,
+            PositionName: data["position"].length > 0 ? data["position"][0]['PositionName']: null,
             DateOfJoining: data["DateOfJoining"]
           };
 
@@ -227,19 +227,21 @@ class AdminEmployeeTable extends Component {
   onEmployeeDelete = e => {
     console.log(e);
     if (window.confirm("Are you sure to delete this record? ") === true) {
-      window.alert("You are not allowed to perform this operation");
-      // axios
-      //   .delete(process.env.REACT_APP_API_URL + "/api/employee/" + e, {
-      //     headers: {
-      //       authorization: localStorage.getItem("token") || ""
-      //     }
-      //   })
-      //   .then(res => {
-      //     this.componentDidMount();
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //   });
+      // window.alert("You are not allowed to perform this operation");
+      axios
+        .delete(process.env.REACT_APP_API_URL + "/api/employee/" + e, {
+          headers: {
+            authorization: localStorage.getItem("token") || ""
+          }
+        })
+        .then(res => {
+          // console.log(this);
+          // this.findOneAndRemove({ "id": (e) });
+          this.componentDidMount();
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
   componentDidMount() {

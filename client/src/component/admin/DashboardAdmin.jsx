@@ -5,6 +5,7 @@ import { Switch } from "react-router";
 
 import Role from "../Role.jsx";
 import NavBar from "../NavBar.jsx";
+import Employee from "../EmployeeAdmin.jsx"
 import Position from "../Position.jsx";
 import Department from "../Department.jsx";
 import AdminPortal from "./AdminPortal.jsx";
@@ -16,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsersCog,
   faUsers,
+  faUser,
   faChair,
   faBuilding,
   faDollarSign,
@@ -34,6 +36,9 @@ function PositionF() {
 }
 function DepartmentF() {
   return <Department />;
+}
+function EmployeeAdminF() {
+  return <Employee />;
 }
 function AdminPortalF() {
   return <AdminPortal />;
@@ -80,6 +85,12 @@ class DashboardAdmin extends Component {
               </div>
               <ul className="navbar-ul">
                 <li>
+                  <Link to="/admin/employee">
+                    <FontAwesomeIcon icon={faUser} className="sidebar-icon" /> 
+                    User 
+                  </Link> 
+                </li>
+                <li>
                   <Link to="/admin/role">
                     <FontAwesomeIcon icon={faUsers} className="sidebar-icon" /> 
                     Role 
@@ -100,7 +111,7 @@ class DashboardAdmin extends Component {
                     Department 
                   </Link> 
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/admin/project-bid">
                     <FontAwesomeIcon
                       icon={faDollarSign}
@@ -114,7 +125,7 @@ class DashboardAdmin extends Component {
                     <FontAwesomeIcon icon={faTasks} className="sidebar-icon" /> 
                     Portal Master 
                   </Link> 
-                </li>
+                </li> */}
                 
               </ul>
             </div>
@@ -124,6 +135,11 @@ class DashboardAdmin extends Component {
               {/* //table */}
               {/* <RoleAdmin/> */}
               <Switch>
+                <Route
+                  path="/admin/employee"
+                  // exact
+                  component={EmployeeAdminF}
+                />
                 <Route exact path="/admin/role" component={RoleAdminF} />
                 {/* <Route path="/admin/role/form" exact component={RoleFormF} /> */}
                 <Route

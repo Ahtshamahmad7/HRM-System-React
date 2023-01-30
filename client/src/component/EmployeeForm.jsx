@@ -265,7 +265,7 @@ class EmployeeForm extends Component {
                 <Form.Control
                   type="date"
                   placeholder="Date Of Joining"
-                  
+                  required
                 />
               </Col>
             </Form.Group>
