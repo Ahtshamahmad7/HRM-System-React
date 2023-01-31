@@ -196,8 +196,8 @@ var salarySchema = new mongoose.Schema({
   BankName: { type: String, required: true },
   AccountNo: { type: String, required: true },
   AccountHolderName: { type: String, required: true },
-  IFSCcode: { type: String, required: true },
-  TaxDeduction: { type: String, required: true }
+  IFSCcode: { type: String, required: false },
+  // TaxDeduction: { type: String }
 });
 salarySchema.plugin(autoIncrement.plugin, {
   model: "Salary",
@@ -219,12 +219,12 @@ const SalaryValidation = Joi.object().keys({
   AccountHolderName: Joi.string()
     .max(200)
     .required(),
-  IFSCcode: Joi.string()
-    .max(200)
-    .required(),
+  // IFSCcode: Joi.string()
+  //   .max(200)
+  //   .required(),
   TaxDeduction: Joi.string()
     .max(100)
-    .required()
+    .optional()
 });
 
 ////////////education
@@ -1717,8 +1717,8 @@ app.post("/api/salary/:id", verifyHR, (req, res) => {
               BankName: req.body.BankName,
               AccountNo: req.body.AccountNo,
               AccountHolderName: req.body.AccountHolderName,
-              IFSCcode: req.body.IFSCcode,
-              TaxDeduction: req.body.TaxDeduction
+              // IFSCcode: req.body.IFSCcode,
+              // TaxDeduction: req.body.TaxDeduction
             };
 
             Salary.create(newSalary, function (err, salary) {
@@ -1764,7 +1764,7 @@ app.put("/api/salary/:id", verifyHR, (req, res) => {
         BankName: req.body.BankName,
         AccountNo: req.body.AccountNo,
         AccountHolderName: req.body.AccountHolderName,
-        IFSCcode: req.body.IFSCcode,
+        // IFSCcode: req.body.IFSCcode,
         TaxDeduction: req.body.TaxDeduction
       };
 
@@ -2704,7 +2704,13 @@ function verifyEmployee(req, res, next) {
   }
 }
 
-var port = process.env.PORT;
+// setup heroku
+
+if (process.ecv.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+}
+
+var port = process.env.PORT || 5000;
 if (port & process.env.IP) {
   app.listen(port, process.env.IP, () => {
     console.log("started");

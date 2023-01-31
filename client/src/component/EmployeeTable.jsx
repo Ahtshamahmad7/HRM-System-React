@@ -212,7 +212,7 @@ class AdminEmployeeTable extends Component {
             EmployeeCode: data["EmployeeCode"],
             DepartmentName: data["department"].length > 0 ? data["department"][0]['DepartmentName']: null,
             PositionName: data["position"].length > 0 ? data["position"][0]['PositionName']: null,
-            DateOfJoining: data["DateOfJoining"]
+            DateOfJoining: data["DateOfJoining"].slice(0, 10)
           };
 
           this.rowDataT.push(temp);

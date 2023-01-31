@@ -62,13 +62,13 @@ class AdminSalaryTable extends Component {
         // width: 117,
         // filter: true ,
       },
-      {
-        headerName: "IFSC code",
-        field: "IFSCcode",
-        sortable: true,
-        // width: 117,
-        // filter: true ,
-      },
+      // {
+      //   headerName: "IFSC code",
+      //   field: "IFSCcode",
+      //   sortable: true,
+      //   // width: 117,
+      //   // filter: true ,
+      // },
       {
         headerName: "Tax Deduction",
         field: "TaxDeduction",
@@ -134,7 +134,7 @@ class AdminSalaryTable extends Component {
             BankName: data["salary"][0]["BankName"],
             AccountNo:data["salary"][0]["AccountNo"],
             AccountHolderName: data["salary"][0]["AccountHolderName"],
-            IFSCcode: data["salary"][0]["IFSCcode"],
+            // IFSCcode: data["salary"][0]["IFSCcode"],
             TaxDeduction:data["salary"][0]["TaxDeduction"],
             
           };

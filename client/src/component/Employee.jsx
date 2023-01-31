@@ -143,11 +143,31 @@ class Employee extends Component {
       })
       .then(res => {
         // this.setState({ table: false });
+
+        if (res) {
+          // if (res.Email === 'MongoError' && res.code === 11000) {
+          //   // Duplicate email
+          //   return res.status(422).send({ succes: false, message: 'User already exist!' });
+          // }
+
+          // if (res.EmployeeCode === 'MongoError' && res.code === 11000) {
+          //   // Duplicate employeeCode
+          //   return res.status(422).send({ succes: false, message: 'User already exist!' });
+          // }
+    
+          // Some other error
+          // return res.status(422).send(res);
+        }
+    
+        // res.json({
+        //   success: true
+        // });
+
         this.setState({ table: true });
       })
       .catch(err => {
-        console.log(err);
-        console.log("catch state run");
+        // window.alert('Email is already in use');
+        // window.alert('Employee Code is already in use');
       });
   };
   handleAddEmployee = () => {

@@ -113,7 +113,7 @@ class EmployeeForm extends Component {
                   as="select"
                   name="role"
                 >
-                  <option disabled selected>
+                  <option disabled select="true">
                     Select your option
                   </option>
                   {this.state.roleData.map((data, index) => (
@@ -232,7 +232,7 @@ class EmployeeForm extends Component {
                   as="select"
                   name="department"
                 >
-                  <option value="" disabled selected>
+                  <option value="" disabled select="true">
                     Select your option
                   </option>
                   {this.state.departmentData.map((data, index) => (
@@ -248,7 +248,7 @@ class EmployeeForm extends Component {
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control as="select" name="position" >
-                  <option value="" disabled selected>
+                  <option value="" disabled select="true">
                     Select your option
                   </option>
                   {this.state.positionData.map((data, index) => (

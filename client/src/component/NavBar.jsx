@@ -50,12 +50,12 @@ class NavBar extends Component {
         
           <Navbar.Collapse id="logout-navbar-nav">
             <Nav className="ml-auto">             
-              <a onClick={this.props.onClick} className="navbar-right-content">
+              <button style={{ border: "none", background: "transparent", cursor: "text" }} onClick={this.props.onClick} className="navbar-right-content">
                 {/* Admin */}
             {this.props.loginInfo["Name"]}
 
-                </a>
-              <a onClick={this.props.onLogout} style={{"cursor":"pointer"}}className="navbar-right-content">Log Out</a>
+                </button>
+              <button onClick={this.props.onLogout} style={{ border: "none", background: "transparent", "cursor":"pointer"}} className="navbar-right-content">Log Out</button>
             </Nav>
           </Navbar.Collapse>
         {/* </div> */}

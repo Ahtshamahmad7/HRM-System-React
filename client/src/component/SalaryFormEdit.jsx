@@ -22,7 +22,7 @@ class SalaryFormEdit extends Component {
             AccountNoData: this.props.editData["salary"][0]["AccountNo"],
             ReAccountNoData: this.props.editData["salary"][0]["AccountNo"],
             AccountHolderNameData:this.props.editData["salary"][0]["AccountHolderName"],
-            IFSCcodeData: this.props.editData["salary"][0]["IFSCcode"],
+            // IFSCcodeData: this.props.editData["salary"][0]["IFSCcode"],
             TaxDeductionData: this.props.editData["salary"][0]["TaxDeduction"],
       
 
@@ -45,9 +45,9 @@ class SalaryFormEdit extends Component {
       onAccountHolderNameDataChange(e) {
         this.setState({ AccountHolderNameData: e.target.value });
       }
-      onIFSCcodeDataChange(e) {
-        this.setState({ IFSCcodeData: e.target.value });
-      }
+      // onIFSCcodeDataChange(e) {
+      //   this.setState({ IFSCcodeData: e.target.value });
+      // }
       onTaxDeductionDataChange(e) {
         this.setState({ TaxDeductionData: e.target.value });
       }
@@ -110,7 +110,6 @@ class SalaryFormEdit extends Component {
                 <Form.Control
                   type="number"
                   placeholder="Basic Salary"
-                  required
                   value={this.state.BasicSalaryData}
         onChange={value => this.onBasicSalaryDataChange(value)}
                 />
@@ -177,7 +176,7 @@ class SalaryFormEdit extends Component {
               </Col>
             </Form.Group>
      
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
               IFSC Code
               </Form.Label>
@@ -190,7 +189,7 @@ class SalaryFormEdit extends Component {
         onChange={value => this.onIFSCcodeDataChange(value)}
                 />
               </Col>
-            </Form.Group>
+            </Form.Group> */}
 
             
             <Form.Group as={Row}>
@@ -201,7 +200,6 @@ class SalaryFormEdit extends Component {
                 <Form.Control
                   type="number"
                   placeholder="Basic Salary"
-                  required
                   value={this.state.TaxDeductionData}
         onChange={value => this.onTaxDeductionDataChange(value)}
                 />

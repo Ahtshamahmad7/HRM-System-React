@@ -1,16 +1,14 @@
 {
-    "homepage": "http://Ahtshamahmad7.github.io/HRM-System-React",
     "name": "project",
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
         "server": "nodemon server",
         "client": "npm start --prefix client",
-        "dev": "concurrently \"npm run start\" \"npm run client\""
+        "dev": "concurrently \"npm run start\" \"npm run client\"",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     },
     "author": "",
     "license": "ISC",
@@ -24,8 +22,7 @@
         "joi": "^14.3.1",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.5.11",
-        "mongoose-auto-increment": "^5.0.1",
-        "nodemon": "^2.0.20"
+        "mongoose-auto-increment": "^5.0.1"
     },
     "devDependencies": {
         "gh-pages": "^5.0.0"

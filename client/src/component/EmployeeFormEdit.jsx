@@ -20,7 +20,7 @@ class EmployeeFormEdit extends Component {
     ContactNoData: this.props.editData["ContactNo"],
     EmployeeCodeData: this.props.editData["EmployeeCode"],
 
-    DateOfJoiningData: this.props.editData["DateOfJoining"]
+    DateOfJoiningData: this.props.editData["DateOfJoining"].slice(0, 10)
     // TerminateDateData: this.props.editData["TerminateDate"].slice(0, 10)
 
     // value={this.state.EmployeeTitleData}

@@ -121,18 +121,8 @@ class SalaryForm extends Component {
               </Col>
             </Form.Group>
      
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-              IFSC Code
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="IFSC Code"
-                  required
-                />
-              </Col>
-            </Form.Group>
+            {/* <For
+             */}
 
             
             <Form.Group as={Row}>
@@ -143,7 +133,6 @@ class SalaryForm extends Component {
                 <Form.Control
                   type="number"
                   placeholder="Basic Salary"
-                  required
                 />
               </Col>
             </Form.Group>

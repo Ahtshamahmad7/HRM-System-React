@@ -23,7 +23,7 @@ import {
 //  faCity,
 //  faGlobeAmericas,
 //  faFileAlt,
-//  faCoins,
+ faCoins,
 //  faChair,
 //  faBuilding,
 //  faPlaceOfWorship,
@@ -116,12 +116,12 @@ class DashboardHR extends Component {
                     User 
                   </Link> 
                 </li>
-                {/* <li>
+                <li>
                   <Link to="/hr/salary">
                     <FontAwesomeIcon icon={faCoins} className="sidebar-icon" /> 
                     Salary 
                   </Link> 
-                </li>  */}
+                </li> 
                  {/* <li>
                   <Link to="/hr/leave-application-hr">
                     <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
