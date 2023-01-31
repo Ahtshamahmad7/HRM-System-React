@@ -2712,6 +2712,10 @@ if (process.ecv.NODE_ENV == "production") {
 
 var port = process.env.PORT || 5000;
 app.listen(process.env.PORT || 5000);
+
+app.get("/", (req, res)=> {
+  res.json("Server start");
+})
 if (port & process.env.IP) {
   app.listen(port, process.env.IP, () => {
     console.log("started");
