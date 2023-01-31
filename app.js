@@ -2706,7 +2706,7 @@ function verifyEmployee(req, res, next) {
 
 // setup heroku
 
-if (process.ecv.NODE_ENV == "production") {
+if (process.env.NODE_ENV == "production") {
   app.use(express.static("client/build"));
 }
 
