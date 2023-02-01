@@ -2704,14 +2704,7 @@ function verifyEmployee(req, res, next) {
   }
 }
 
-// setup heroku
-
-if (process.env.NODE_ENV == "production") {
-  app.use(express.static("client/build"));
-}
-
-var port = process.env.PORT || 5000;
-
+var port = process.env.PORT;
 if (port & process.env.IP) {
   app.listen(port, process.env.IP, () => {
     console.log("started");
