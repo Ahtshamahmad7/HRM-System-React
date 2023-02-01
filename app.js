@@ -6,6 +6,7 @@ var express = require("express"),
 jwt = require("jsonwebtoken");
 require('dotenv').config()
 
+var path = require('path');
 
 //connecting to mongodb
 let mongoURI = process.env.DATABASEURL;
@@ -2705,22 +2706,22 @@ function verifyEmployee(req, res, next) {
 }
 
 // Serving the frontend
-// app.use(express.static(path.join(__dirname, "./client/build")));
-// app.get("*", function (_, res) {
-//   res.sendFile(
-//     path.join(__dirname, "./client/build/index.html"),
-//     function (err) {
-//       res.status(500).send(err);
-//     }
-//   );
-// });
+app.use(express.static(path.join(__dirname, "*/client/build")));
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "*/client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (_, res) => {
-     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+//   app.get("*", (_, res) => {
+//      res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
 
 var port = process.env.PORT;
 if (port & process.env.IP) {
