@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "app.js",
-    "engines": {
-        "node": "18.x"
-    },
     "scripts": {
         "start": "node app.js",
         "server": "nodemon server",
@@ -24,11 +21,8 @@
         "express": "^4.17.1",
         "joi": "^14.3.1",
         "jsonwebtoken": "^8.5.1",
-        "mongodb": "^3.0.0",
         "mongoose": "^4.13.17",
-        "mongoose-auto-increment": "^5.0.1",
-        "node": "^16.8.0",
-        "nodemon": "^2.0.20"
+        "mongoose-auto-increment": "^5.0.1"
     },
     "devDependencies": {
         "gh-pages": "^5.0.0"
