@@ -121,7 +121,7 @@ class AdminSalaryTable extends Component {
       })
       .then(response => {
         this.salaryObj = response.data;
-        console.log("response", response.data);
+        // console.log("response", response.data);
         this.setState({ salaryData: response.data });
         this.setState({ loading: false });
         this.rowDataT = [];
@@ -129,7 +129,7 @@ class AdminSalaryTable extends Component {
         this.salaryObj.forEach(data => {
           let temp = {
             data,
-            EmployeeName: data["FirstName"]+""+data["LastName"],
+            EmployeeName: data["FirstName"] + " " + data["LastName"],
             BasicSalary: data["salary"][0]["BasicSalary"],
             BankName: data["salary"][0]["BankName"],
             AccountNo:data["salary"][0]["AccountNo"],
@@ -172,14 +172,14 @@ class AdminSalaryTable extends Component {
     this.loadSalaryData();
   }
   renderButton(params){
-    console.log(params);
+    // console.log(params);
     return <FontAwesomeIcon
     icon={faTrash}
     onClick={() => this.onSalaryDelete(params.data.data["_id"])}
   />;
   }
   renderEditButton(params){
-    console.log(params);
+    // console.log(params);
     return <FontAwesomeIcon
     icon={faEdit}
     onClick={() => this.props.onEditSalary(params.data.data)}

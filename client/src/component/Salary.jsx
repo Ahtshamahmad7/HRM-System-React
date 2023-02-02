@@ -141,7 +141,7 @@ else{
       // IFSCcode: newInfo.target[6].value,
       // TaxDeduction: newInfo.target[6].value,      
     };
-    console.log("update", body);
+    // console.log("update", body);
     axios
       .put(
         process.env.REACT_APP_API_URL + "/api/salary/" + info["salary"][0]["_id"],
