@@ -95,11 +95,11 @@ class LeaveApplicationHR extends Component {
   // };
   handleLeaveApplicationHREditUpdate = (info, newInfo) => {
     newInfo.preventDefault();
-    console.log("zero data", newInfo.target[0].value);
+    // console.log("zero dataaaaaaaaaaaa", newInfo.target[4].value);
     let body = {
       Status: newInfo.target[4].value,
     };
-    console.log("update", body);
+    // console.log("update 00000000000", newInfo.target[4].value);
     axios
       .put(
         process.env.REACT_APP_API_URL + "/api/leave-application-hr/" + info["_id"],

@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
  faUser,
+ faFileAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -111,7 +112,7 @@ class DashboardHR extends Component {
                     />
                     WorkExp
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to={
                       "/employee/" + this.props.data["_id"] + "/leave-application-emp"
@@ -122,7 +123,7 @@ class DashboardHR extends Component {
                     />
                     Leave Application
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
             {/* <div id="sidebar-top-content" /> */}

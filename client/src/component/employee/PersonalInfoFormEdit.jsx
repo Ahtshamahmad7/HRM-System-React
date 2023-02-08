@@ -20,7 +20,7 @@ class PersonalInfoFormEdit extends Component {
     DOBData: this.props.editData["DOB"].slice(0, 10),
     ContactNoData: this.props.editData["ContactNo"],
     EmergencyContactNoData: this.props.editData["EmergencyContactNo"] || "",
-    PANcardNoData: this.props.editData["PANcardNo"] || "",
+    // PANcardNoData: this.props.editData["PANcardNo"] || "",
     HobbiesData: this.props.editData["Hobbies"] || "",
     PresentAddressData: this.props.editData["PresentAddress"] || "",
     PermanetAddressData: this.props.editData["PermanetAddress"] || ""

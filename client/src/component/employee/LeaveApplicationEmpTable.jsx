@@ -111,7 +111,7 @@ class LeaveApplicationEmpTable extends Component {
       )
       .then(response => {
         this.leaveApplicationEmpObj = response.data;
-        console.log("response", response.data);
+        // console.log("response", response.data);
         this.setState({ leaveApplicationEmpData: response.data });
         this.setState({ loading: false });
         this.rowDataT = [];
@@ -123,9 +123,16 @@ class LeaveApplicationEmpTable extends Component {
             FromDate: data["FromDate"].slice(0, 10),
             ToDate: data["ToDate"].slice(0, 10),
             Reasonforleave: data["Reasonforleave"],
-            Status: this.status(data["Status"]),
+            Status: data["Status"],
 
           };
+          let statusMsg='Pending';
+          if (data["Status"]==='2'){
+            statusMsg='Approved';
+          } else if(data["Status"]==='3'){
+            statusMsg='Rejected';
+          }
+          temp.Status=statusMsg;
 
           this.rowDataT.push(temp);
         });
@@ -160,7 +167,7 @@ class LeaveApplicationEmpTable extends Component {
   }
 
   renderButton(params) {
-    console.log(params);
+    // console.log(params);
     return (
       <FontAwesomeIcon
         icon={faTrash}
@@ -171,7 +178,7 @@ class LeaveApplicationEmpTable extends Component {
     );
   }
   renderEditButton(params) {
-    console.log(params);
+    // console.log(params);
     return (
       <FontAwesomeIcon
         icon={faEdit}
@@ -205,6 +212,7 @@ class LeaveApplicationEmpTable extends Component {
     return (
       <div id="table-outer-div-scroll">
         <h2 id="role-title">Leave Application</h2>
+        <h2 id="role-title" style={{"padding-left": "20rem"}}>Leave Application: {8}</h2>
 
         <Button
           variant="primary"

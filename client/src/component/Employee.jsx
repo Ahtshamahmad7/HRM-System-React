@@ -207,7 +207,7 @@ class Employee extends Component {
       DateOfJoining: newInfo.target[12].value
       // TerminateDate: newInfo.target[13].value,
     };
-    console.log("update", body);
+    // console.log("update", body);
     axios
       .put(
         process.env.REACT_APP_API_URL + "/api/employee/" + info["_id"],

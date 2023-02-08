@@ -97,7 +97,7 @@ class EmployeeForm extends Component {
     </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control as="select" required>
-                  <option value="1">Admin</option>
+                  {/* <option value="1">Admin</option> */}
                   <option value="2">HR</option>
                   <option value="3">Employee</option>
                 </Form.Control>

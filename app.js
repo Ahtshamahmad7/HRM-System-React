@@ -180,7 +180,7 @@ const EmployeePersonalInfoValidation = Joi.object().keys({
     .required(),
   PANcardNo: Joi.string()
     .max(50)
-    .required(),
+    .optional(),
   PermanetAddress: Joi.string()
     .max(200)
     .required(),
@@ -1608,7 +1608,7 @@ app.post("/api/employee", verifyAdminHR, (req, res) => {
   });
 });
 
-app.put("/api/employee/:id", verifyHR, verifyAdmin, (req, res) => {
+app.put("/api/employee/:id", verifyAdminHR, (req, res) => {
   Joi.validate(req.body, EmployeeValidationUpdate, (err, result) => {
     if (err) {
       console.log(err);
@@ -1855,16 +1855,16 @@ app.put("/api/personal-info/:id", verifyEmployee, (req, res) => {
       let newEmployee;
 
       newEmployee = {
-        BloodGroup: req.body.BloodGroup,
-        ContactNo: req.body.ContactNo,
-        DOB: req.body.DOB,
-        Email: req.body.Email,
-        EmergencyContactNo: req.body.EmergencyContactNo,
         Gender: req.body.Gender,
+        ContactNo: req.body.ContactNo,
+        EmergencyContactNo: req.body.EmergencyContactNo,
+        Email: req.body.Email,
+        DOB: req.body.DOB,
+        BloodGroup: req.body.BloodGroup,
         Hobbies: req.body.Hobbies,
-        PANcardNo: req.body.PANcardNo,
-        PermanetAddress: req.body.PermanetAddress,
-        PresentAddress: req.body.PresentAddress
+        // PANcardNo: req.body.PANcardNo,
+        PresentAddress: req.body.PresentAddress,
+        PermanetAddress: req.body.PermanetAddress
       };
       Employee.findByIdAndUpdate(
         req.params.id,

@@ -94,7 +94,7 @@ class LeaveApplicationEmp extends Component {
   // };
   handleLeaveApplicationEmpEditUpdate = (info, newInfo) => {
     newInfo.preventDefault();
-    console.log("zero data", newInfo.target[0].value);
+    // console.log("zero data", newInfo.target[0].value);
     let body = {
       Leavetype: newInfo.target[0].value,
       FromDate: newInfo.target[1].value,

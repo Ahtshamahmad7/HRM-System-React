@@ -70,13 +70,13 @@ class PersonalInfoTable extends Component {
         // filter: true ,
         // width: 150,
       },
-      {
-        headerName: "PANcard No",
-        field: "PANcardNo",
-        sortable: true,
-        // filter: true ,
-        // width: 150,
-      },
+      // {
+      //   headerName: "PANcard No",
+      //   field: "PANcardNo",
+      //   sortable: true,
+      //   // filter: true ,
+      //   // width: 150,
+      // },
 
       {
         headerName: "DOB",
@@ -153,7 +153,7 @@ class PersonalInfoTable extends Component {
           Gender: data["Gender"] || "Not Avaiable",
           ContactNo: data["ContactNo"] || "Not Avaiable",
           Email: data["Email"] || "Not Avaiable",
-          PANcardNo: data["PANcardNo"] || "Not Avaiable",
+          // PANcardNo: data["PANcardNo"] || "Not Avaiable",
           DOB: data["DOB"].slice(0, 10) || "Not Avaiable",
           Hobbies: data["Hobbies"] || "Not Avaiable",
           PresentAddress: data["PresentAddress"] || "Not Avaiable",

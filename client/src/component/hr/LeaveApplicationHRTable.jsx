@@ -126,9 +126,15 @@ class LeaveApplicationHRTable extends Component {
             FromDate: data["FromDate"].slice(0, 10),
             ToDate: data["ToDate"].slice(0, 10),
             Reasonforleave: data["Reasonforleave"],
-            Status: this.status(data["Status"])
+            // Status: data["Status"]
           };
-
+          let statusMsg='Pending';
+          if (data["Status"]==='2'){
+            statusMsg='Approved';
+          } else if(data["Status"]==='3'){
+            statusMsg='Rejected';
+          }
+          temp.Status=statusMsg;
           this.rowDataT.push(temp);
         });
         this.setState({ rowData: this.rowDataT });
