@@ -70,13 +70,13 @@ class LeaveApplicationHRForm extends Component {
                     Casual Leave
                   </option>
                   <option
-                    value="Privilege Leave"
+                    value="Annual Leave"
                     selected={
-                      this.props.editData["Leavetype"] === "Privilege Leave"
+                      this.props.editData["Leavetype"] === "Annual Leave"
                     }
                     disabled
                   >
-                    Privilege Leave
+                    Annual Leave
                   </option>
                 </Form.Control>
               </Col>

@@ -12,7 +12,9 @@ class LeaveApplicationEmpForm extends Component {
     return (
       <div>
         
-        <h2 id="role-form-title">Add LeaveApplicationEmp Details</h2>
+        <div>
+        <h2 id="role-form-title">Add Leave Application Employee Details</h2>
+        </div>
  <div id="role-form-outer-div"><Form id="form" onSubmit={this.props.onLeaveApplicationEmpSubmit}>
   
 
@@ -29,7 +31,7 @@ class LeaveApplicationEmpForm extends Component {
                   </option>
     <option value="Sick Leave">Sick Leave</option>
     <option value="Casual Leave">Casual Leave</option>
-    <option value="Privilege Leave">Privilege Leave</option>
+    <option value="Annual Leave">Annual Leave</option>
           </Form.Control>
     </Col>
     </Form.Group>

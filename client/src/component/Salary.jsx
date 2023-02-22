@@ -73,7 +73,7 @@ class Salary extends Component {
             AccountNo: event.target[3].value,
             AccountHolderName:event.target[5].value,
             // IFSCcode: event.target[6].value,
-            // TaxDeduction: event.target[6].value,
+            TaxDeduction: event.target[6].value,
           };
           axios
             .post(process.env.REACT_APP_API_URL + "/api/salary/"+event.target[0].value, body, {
@@ -139,7 +139,7 @@ else{
       AccountNo: newInfo.target[3].value,
       AccountHolderName:newInfo.target[5].value,
       // IFSCcode: newInfo.target[6].value,
-      // TaxDeduction: newInfo.target[6].value,      
+      TaxDeduction: newInfo.target[6].value,      
     };
     // console.log("update", body);
     axios

@@ -73,7 +73,7 @@ class PersonalInfoFormEdit extends Component {
   render() {
     return (
       <React.Fragment>
-        <h2 id="role-form-title">Edit PersonalInfo Details</h2>
+        <h2 id="role-form-title">Edit Personal Info Details</h2>
         <div id="role-form-outer-div">
           <Form
             id="form"

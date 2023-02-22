@@ -15,7 +15,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
  faUser,
- faFileAlt
+ faFileAlt,
+ faUniversity
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -78,7 +79,7 @@ class DashboardHR extends Component {
                     Personal Information
                   </Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link
                     to={
                       "/employee/" + this.props.data["_id"] + "/education"
@@ -91,7 +92,7 @@ class DashboardHR extends Component {
                     Education
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to={
                       "/employee/" + this.props.data["_id"] + "/family-info"
                     }>

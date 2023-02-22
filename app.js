@@ -1658,7 +1658,7 @@ app.delete("/api/employee/:id", verifyAdmin, (req, res) => {
     } else {
         Employee.findByIdAndRemove({ _id: req.params.id }, function (err) {
           if (!err) {
-            console.log(" Employee deleted");
+            console.log("Employee deleted");
           } else {
             console.log("error");
             res.send("err");
@@ -1719,7 +1719,7 @@ app.post("/api/salary/:id", verifyHR, (req, res) => {
               AccountNo: req.body.AccountNo,
               AccountHolderName: req.body.AccountHolderName,
               // IFSCcode: req.body.IFSCcode,
-              // TaxDeduction: req.body.TaxDeduction
+              TaxDeduction: req.body.TaxDeduction
             };
 
             Salary.create(newSalary, function (err, salary) {
