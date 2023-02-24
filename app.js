@@ -1,6 +1,5 @@
 var express = require("express"),
   mongoose = require("mongoose"),
-  autoIncrement = require("mongoose-auto-increment"),
   Joi = require("joi"),
   app = express();
 jwt = require("jsonwebtoken");
@@ -35,7 +34,6 @@ mongoose
 
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
-autoIncrement.initialize(conn);
 // app.use(bodyParser.urlencoded({ extended: true }));
 
 //for request body
@@ -75,10 +73,6 @@ var employeeSchema = new mongoose.Schema({
   PANcardNo: { type: String },
   PermanetAddress: { type: String },
   PresentAddress: { type: String }
-});
-employeeSchema.plugin(autoIncrement.plugin, {
-  model: "Employee",
-  field: "EmployeeID"
 });
 
 var Employee = mongoose.model("Employee", employeeSchema);
@@ -200,10 +194,6 @@ var salarySchema = new mongoose.Schema({
   IFSCcode: { type: String, required: false },
   // TaxDeduction: { type: String }
 });
-salarySchema.plugin(autoIncrement.plugin, {
-  model: "Salary",
-  field: "SalaryID"
-});
 
 var Salary = mongoose.model("Salary", salarySchema);
 
@@ -236,10 +226,6 @@ var educationSchema = new mongoose.Schema({
   Grade: { type: String, required: true },
   PassingOfYear: { type: String, required: true }
 });
-educationSchema.plugin(autoIncrement.plugin, {
-  model: "Education",
-  field: "EducationID"
-});
 
 var Education = mongoose.model("Education", educationSchema);
 
@@ -266,10 +252,6 @@ var familyInfoSchema = new mongoose.Schema({
   DOB: { type: Date, required: true },
   Occupation: { type: String, required: true }
 });
-familyInfoSchema.plugin(autoIncrement.plugin, {
-  model: "FamilyInfo",
-  field: "FamilyInfoID"
-});
 
 var FamilyInfo = mongoose.model("FamilyInfo", familyInfoSchema);
 
@@ -293,10 +275,6 @@ var workExperienceSchema = new mongoose.Schema({
   FromDate: { type: Date, required: true },
   ToDate: { type: Date, required: true }
 });
-workExperienceSchema.plugin(autoIncrement.plugin, {
-  model: "WorkExperience",
-  field: "WorkExperienceID"
-});
 
 var WorkExperience = mongoose.model("WorkExperience", workExperienceSchema);
 
@@ -319,10 +297,6 @@ var leaveApplicationSchema = new mongoose.Schema({
   Reasonforleave: { type: String, required: true },
   Status: { type: String, required: true },
   employee: [{ type: mongoose.Schema.Types.ObjectId, ref: "Employee" }]
-});
-leaveApplicationSchema.plugin(autoIncrement.plugin, {
-  model: "LeaveApplication",
-  field: "LeaveApplicationID"
 });
 
 var LeaveApplication = mongoose.model(
@@ -356,10 +330,6 @@ var roleSchema = new mongoose.Schema({
   RoleName: { type: String, required: true },
   company: [{ type: mongoose.Schema.Types.ObjectId, ref: "Company" }]
 });
-roleSchema.plugin(autoIncrement.plugin, {
-  model: "Role",
-  field: "RoleID"
-});
 var Role = mongoose.model("Role", roleSchema);
 
 const RoleValidation = Joi.object().keys({
@@ -372,10 +342,6 @@ const RoleValidation = Joi.object().keys({
 var positionSchema = new mongoose.Schema({
   PositionName: { type: String, required: true },
   company: [{ type: mongoose.Schema.Types.ObjectId, ref: "Company" }]
-});
-positionSchema.plugin(autoIncrement.plugin, {
-  model: "Position",
-  field: "PositionID"
 });
 
 var Position = mongoose.model("Position", positionSchema);
@@ -390,10 +356,6 @@ const PositionValidation = Joi.object().keys({
 var departmentSchema = new mongoose.Schema({
   DepartmentName: { type: String, required: true },
   company: [{ type: mongoose.Schema.Types.ObjectId, ref: "Company" }]
-});
-departmentSchema.plugin(autoIncrement.plugin, {
-  model: "Department",
-  field: "DepartmentID"
 });
 
 var Department = mongoose.model("Department", departmentSchema);
@@ -415,10 +377,6 @@ var portalSchema = new mongoose.Schema({
   ModifiedDate: { type: Date },
   PortalName: { type: String, required: true },
   Status: { type: Number, required: true }
-});
-portalSchema.plugin(autoIncrement.plugin, {
-  model: "Portal",
-  field: "ID"
 });
 
 var Portal = mongoose.model("Portal", portalSchema);
@@ -459,10 +417,6 @@ var projectSchema = new mongoose.Schema({
   // Portals: 2
   /////////////****************** */
   portals: [{ type: mongoose.Schema.Types.ObjectId, ref: "Portal" }]
-});
-projectSchema.plugin(autoIncrement.plugin, {
-  model: "Project",
-  field: "ID"
 });
 
 var Project = mongoose.model("Project", projectSchema);
@@ -507,10 +461,6 @@ var countrySchema = new mongoose.Schema({
   CountryName: { type: String, required: true },
   states: [{ type: mongoose.Schema.Types.ObjectId, ref: "State" }]
 });
-countrySchema.plugin(autoIncrement.plugin, {
-  model: "Country",
-  field: "CountryID"
-});
 var Country = mongoose.model("Country", countrySchema);
 
 const CountryValidation = Joi.object().keys({
@@ -526,10 +476,6 @@ var stateSchema = new mongoose.Schema({
   country: [{ type: mongoose.Schema.Types.ObjectId, ref: "Country" }],
   cities: [{ type: mongoose.Schema.Types.ObjectId, ref: "City" }]
 });
-stateSchema.plugin(autoIncrement.plugin, {
-  model: "State",
-  field: "StateID"
-});
 var State = mongoose.model("State", stateSchema);
 
 const StateValidation = Joi.object().keys({
@@ -543,10 +489,6 @@ const StateValidation = Joi.object().keys({
 var citySchema = new mongoose.Schema({
   CityName: { type: String, required: true },
   state: [{ type: mongoose.Schema.Types.ObjectId, ref: "State" }]
-});
-citySchema.plugin(autoIncrement.plugin, {
-  model: "City",
-  field: "CityID"
 });
 var City = mongoose.model("City", citySchema);
 
@@ -568,16 +510,12 @@ var companySchema = new mongoose.Schema({
   Email: { type: String, required: true },
   ContactPerson: { type: String, required: true },
   ContactNo: { type: String, required: true },
-  FaxNo: { type: String, required: true },
-  PanNo: { type: String, required: true },
-  GSTNo: { type: String, required: true },
-  CINNo: { type: String, required: true },
+  FaxNo: { type: String, required: false },
+  PanNo: { type: String, required: false },
+  GSTNo: { type: String, required: false },
+  CINNo: { type: String, required: false },
   Deleted: { type: Boolean },
   city: [{ type: mongoose.Schema.Types.ObjectId, ref: "City" }]
-});
-citySchema.plugin(autoIncrement.plugin, {
-  model: "Company",
-  field: "CompanyID"
 });
 var Company = mongoose.model("Company", companySchema);
 
@@ -607,16 +545,16 @@ const CompanyValidation = Joi.object().keys({
     .required(),
   FaxNo: Joi.string()
     .max(100)
-    .required(),
+    .optional(),
   PanNo: Joi.string()
     .max(200)
-    .required(),
+    .optional(),
   GSTNo: Joi.string()
     .max(200)
-    .required(),
+    .optional(),
   CINNo: Joi.string()
     .max(200)
-    .required(),
+    .optional(),
   Deleted: Joi.optional()
 });
 
